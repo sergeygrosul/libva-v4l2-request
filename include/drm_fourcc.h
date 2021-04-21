@@ -26,6 +26,8 @@
 
 #include "drm.h"
 
+#define V4L2_PIX_FMT_SUNXI_TILED_NV12 v4l2_fourcc('S', 'T', '1', '2') /* Sunxi Tiled NV12 Format */
+
 #if defined(__cplusplus)
 extern "C" {
 #endif

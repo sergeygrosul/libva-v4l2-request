@@ -353,10 +353,10 @@ int v4l2_queue_buffer(int video_fd, int request_fd, unsigned int type,
 		else
 			buffer.bytesused = size;
 
-	if (request_fd >= 0) {
+/*	if (request_fd >= 0) {	// Patch this!
 		buffer.flags = V4L2_BUF_FLAG_REQUEST_FD;
 		buffer.request_fd = request_fd;
-	}
+	}*/
 
 	if (timestamp != NULL)
 		buffer.timestamp = *timestamp;
@@ -386,10 +386,10 @@ int v4l2_dequeue_buffer(int video_fd, int request_fd, unsigned int type,
 	buffer.length = buffers_count;
 	buffer.m.planes = planes;
 
-	if (request_fd >= 0) {
+/*	if (request_fd >= 0) { // Patch this!
 		buffer.flags = V4L2_BUF_FLAG_REQUEST_FD;
 		buffer.request_fd = request_fd;
-	}
+	}*/
 
 	rc = ioctl(video_fd, VIDIOC_DQBUF, &buffer);
 	if (rc < 0) {
@@ -445,10 +445,10 @@ int v4l2_set_control(int video_fd, int request_fd, unsigned int id, void *data,
 	controls.controls = &control;
 	controls.count = 1;
 
-	if (request_fd >= 0) {
+/*	if (request_fd >= 0) { // Patch this!
 		controls.which = V4L2_CTRL_WHICH_REQUEST_VAL;
 		controls.request_fd = request_fd;
-	}
+	}*/
 
 	rc = ioctl(video_fd, VIDIOC_S_EXT_CTRLS, &controls);
 	if (rc < 0) {

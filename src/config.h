@@ -36,6 +36,7 @@
 	((struct object_config *)object_heap_lookup(&(data)->config_heap, id))
 #define CONFIG_ID_OFFSET		0x01000000
 
+
 struct object_config {
 	struct object_base base;
 
