@@ -29,17 +29,6 @@
 
 #define SOURCE_SIZE_MAX						(1024 * 1024)
 
-/**
- * v4l2_timeval_to_ns - Convert timeval to nanoseconds
- * @ts:		pointer to the timeval variable to be converted
- *
- * Returns the scalar nanosecond representation of the timeval
- * parameter.
- */
-static inline __u64 v4l2_timeval_to_ns(const struct timeval *tv)
-{
-	return (__u64)tv->tv_sec * 1000000000ULL + tv->tv_usec * 1000;
-}
 
 
 unsigned int v4l2_type_video_output(bool mplane);
